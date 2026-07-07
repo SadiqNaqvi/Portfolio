@@ -6,6 +6,7 @@ html {
 }
 
 :root {
+  --primary: #11071f;
   --secondary: #281344;
   --accent: #c697f5;
   --glow: #512d80;
@@ -16,7 +17,7 @@ body {
   width: 100dvw;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: #11071f;
+  background-color: var(--primary);
   color: ghostwhite;
   font-family: "Comfortaa", sans-serif;
   scroll-behavior: smooth;
@@ -146,20 +147,13 @@ body > :where(header, footer, section) > * {
   margin-inline: auto;
 }
 
-body > header,
-body > footer {
+body > :where(header, footer, section):nth-child(odd) {
   background:
     radial-gradient(circle 300px at left top, var(--glow), transparent),
     radial-gradient(circle 300px at right bottom, var(--glow), transparent);
 }
 
-body > section:nth-child(odd) {
-  background:
-    radial-gradient(circle 300px at left top, var(--glow), transparent),
-    radial-gradient(circle 300px at right bottom, var(--glow), transparent);
-}
-
-body > section:nth-child(even) {
+body > :where(header, footer, section):nth-child(even) {
   background:
     radial-gradient(circle 300px at right top, var(--glow), transparent),
     radial-gradient(circle 300px at left bottom, var(--glow), transparent);
@@ -214,7 +208,7 @@ nav {
   position: absolute;
   bottom: -100%;
   right: 0;
-  background-image: url(/Assets/signatureLine.png);
+  background-image: url(/src/assets/signatureLine.png);
   background-position: center;
   background-size: contain;
   filter: invert(1);
@@ -224,17 +218,6 @@ nav {
 #projectCarousal::-webkit-scrollbar {
   display: none;
 }
-
-/* .carousalItems > div {
-  opacity: 0;
-  backdrop-filter: brightness(1);
-  transition: all 500ms ease;
-}
-
-.carousalItems:hover > div {
-  opacity: 1;
-  backdrop-filter: brightness(0.2);
-} */
 
 @media screen and (width<1024px) {
   #techStackContainer {
@@ -248,28 +231,6 @@ nav {
   .catalyst {
     bottom: 50%;
   }
-}
-
-@media screen and (width<768px) {
-  /* #carousalPrev,
-  #carousalNext {
-    position: absolute;
-    bottom: -20px;
-    transform: translateY(100%);
-  }
-
-  #carousalNext {
-    left: 55%;
-  }
-
-  #carousalPrev {
-    right: 55%;
-  }
-
-  #projectCarousal {
-    width: 80%;
-    height: 60dvh;
-  } */
 }
 
 @media screen and (width<700px) {
